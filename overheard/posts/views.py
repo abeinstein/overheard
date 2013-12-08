@@ -9,4 +9,4 @@ class PostListView(ListView):
     template_name = 'posts/post_list.html'
 
     def get_queryset(self):
-        return Post.objects.order_by('-num_likes').exclude(body__isnull=True)
+        return Post.objects.order_by('-num_likes').exclude(body__isnull=True).exclude(body__exact='')
