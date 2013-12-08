@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -20,9 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '_2#w2m+b1c=i1h!)r&f-3qb=nnd9+w!%_=vtp*g&-+ht!$3+j5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -39,7 +37,6 @@ INSTALLED_APPS = (
 
     'posts',
     'south',
-    'debug_toolbar',
     'django_extensions',
 )
 
@@ -94,24 +91,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 
-# DJANGO debug toolbar
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
 
-INTERNAL_IPS = ('127.0.0.1',)
 
-# Heroku
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-# Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'

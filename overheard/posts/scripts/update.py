@@ -5,10 +5,11 @@ import json
 import urllib2
 import datetime
 import time
+import os
 
 OVERHEARD_ID = '2709015299'
-APP_ID = '182720515262516'
-APP_SECRET = 'fe035c20b816d3e6f90c020bbbc3e1ef'
+APP_ID = os.environ('APP_ID')
+APP_SECRET = os.environ('APP_SECRET')
 LIMIT = 1000
 
 def process_query(data):
