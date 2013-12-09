@@ -1,5 +1,6 @@
-Best of Overheard@UChicago
+Best of Overheard@UChicago:
 =========
+Hosted at overheard.herokuapp.com
 
 Compiles the best posts (based on like counts) from [Overheard@UChicago](https://www.facebook.com/groups/2709015299/). Completed in a few hours over finals weekend, instead of studying for finals.
 
@@ -9,6 +10,6 @@ Maybe later I'll add:
 * Easy way to search posts
 * Submit post directly from site
 * Generalize to support other FB groups??? Maybe this is actually something people need for their fb groups
-* Make prettier
+* Professionalize: make pretty, custom domain
 
 Coders, designers, feel free to fork and contribute! I'll add build docs in the near future (after finals :-0)
