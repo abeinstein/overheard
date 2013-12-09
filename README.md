@@ -11,5 +11,6 @@ Maybe later I'll add:
 * Submit post directly from site
 * Generalize to support other FB groups??? Maybe this is actually something people need for their fb groups
 * Professionalize: make pretty, custom domain
+* Tests (testing gods please forgive me, it it finals week, but I know I have sinned)
 
 Coders, designers, feel free to fork and contribute! I'll add build docs in the near future (after finals :-0)
