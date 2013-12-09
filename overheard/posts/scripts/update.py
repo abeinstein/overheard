@@ -8,9 +8,9 @@ import time
 import os
 
 OVERHEARD_ID = '2709015299'
-APP_ID = os.environ('APP_ID')
-APP_SECRET = os.environ('APP_SECRET')
 LIMIT = 1000
+APP_ID = os.environ['APP_ID']
+APP_SECRET = os.environ['APP_SECRET']
 
 def process_query(data):
     for post in data:
@@ -95,7 +95,6 @@ def run(*script_args):
             except:
                 count = 100
             update_latest(count)
-
 
 
 
