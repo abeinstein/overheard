@@ -1,6 +1,6 @@
 Best of Overheard@UChicago:
 =========
-Hosted [here](overheard.herokuapp.com)
+Hosted [here](https://overheard.herokuapp.com)
 
 Compiles the best posts (based on like counts) from [Overheard@UChicago](https://www.facebook.com/groups/2709015299/). Completed in a few hours over finals weekend, instead of studying for finals.
 
