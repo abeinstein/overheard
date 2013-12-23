@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 
 from posts.views import PostListView
+from haystack.views import SearchView, search_view_factory
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -12,6 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', PostListView.as_view(), name='home')
+    (r'^search/', include('haystack.urls')),
 )
 
 if settings.DEBUG:
