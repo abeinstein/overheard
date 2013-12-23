@@ -23,4 +23,7 @@ class Post(models.Model):
     def __str__(self):
         return self.body
 
+    def __unicode__(self):
+        return unicode(self.body)
+
 

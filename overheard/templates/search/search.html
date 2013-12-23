@@ -1,24 +1,46 @@
 {% extends 'index.html' %}
 
 {% block content %}
-    <h2>Search</h2>
-        {% if query %}
-            <h3>Results</h3>
+    <h2>Search results for '{{query}}'</h2>
+    <ul class="pager">
+        {% if page.has_previous %}
+        <li class="previous"><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">&larr; Previous</a></li>
+        {% endif %}
+        {% if page.has_next %}
+        <li class="next"><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
 
+        {% if query %}
             {% for result in page.object_list %}
-                <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a>
-                </p>
+                {% if result.object.body or result.object.has_picture %}
+             <div class="row">
+                <div class="col-md-7">
+                    <h4>{{ result.object.body|linebreaksbr }}</h4>
+            
+            {% if result.object.has_picture %}
+                <img class="img-responsive" src="{{ result.object.picture_url }}"/>
+            {% endif %}
+            </div>
+            <div class="col-md-1">{{ result.object.num_likes }} likes</div>
+            <div class="col-md-1"><a href="{{ 'http://www.facebook.com/'|add:result.object.facebook_id }}">See post</a></div>
+            <div class="col-md-2">{{ result.object.date }}</div>
+
+            </div>
+             <hr>
+            {% endif %}
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
 
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %}
+            <ul class="pager">
+                {% if page.has_previous %}
+                <li class="previous"><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">&larr; Previous</a></li>
+                {% endif %}
+                {% if page.has_next %}
+                <li class="next"><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">Next &rarr;</a></li>
+                {% endif %}
+            </ul>
         {% endif %}
+
 {% endblock %}

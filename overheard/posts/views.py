@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from vanilla import ListView
 
 from .models import Post

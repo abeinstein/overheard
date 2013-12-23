@@ -1,19 +1,23 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
-
-from posts.views import PostListView
+from haystack.forms import SearchForm
+from haystack.query import SearchQuerySet
 from haystack.views import SearchView, search_view_factory
+from posts.views import PostListView
+from posts.models import Post
 admin.autodiscover()
 
-urlpatterns = patterns('',
+# TODO: Get ordering by likes working
+#sqs = SearchQuerySet().order_by('-num_likes')#.exclude(body__isnull=True).exclude(body__exact='')
+urlpatterns = patterns('haystack.views',
     # Examples:
     # url(r'^$', 'overheard.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', PostListView.as_view(), name='home')
-    (r'^search/', include('haystack.urls')),
+    url(r'^$', PostListView.as_view(), name='home'),
+    url(r'^search/$', search_view_factory(), name='haystack_search'),
 )
 
 if settings.DEBUG:
